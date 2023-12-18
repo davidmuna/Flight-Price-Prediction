@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Price Prediction</title>
 
-
-    <!-- BootStrap -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-
-    <!-- css -->
+    <!-- Your Custom CSS -->
     <link rel="stylesheet" href="static/css/styles.css">
 
+    <style>
+        .centered-text {
+            text-align: center;
+        }
+
+        .result-text {
+            font-size: 1.5rem; /* Adjust the font size as needed */
+        }
+    </style>
 
 </head>
 
@@ -22,25 +30,20 @@
     <!-- As a heading -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">FLIGHT PRICE</a>
+            <div class="navbar-header text-center">
+                <a class="navbar-brand" href="#" style="display: block; width: 100%;" class="centered-text">FLIGHT PRICE
+                    PREDICTION</a>
             </div>
         </div>
     </nav>
 
-    <br><br><br>
-
-
-    <div class="container">
-
-
+    <div class="container mt-5">
 
         <form action="\predict" method="post">
 
-
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="card">
+                <div class="col-md-6">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Departure Date</h5>
                             <!-- Departure -->
@@ -48,11 +51,8 @@
                         </div>
                     </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                <div class="col-sm-6">
-                    <div class="card">
+                <div class="col-md-6">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Arrival Date</h5>
                             <!-- Arrival -->
@@ -62,17 +62,13 @@
                 </div>
             </div>
 
-            <br>
-            <br>
-            <br>
-
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="card">
+                <div class="col-md-6">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <!-- Source -->
                             <h5 class="card-title">Source</h5>
-                            <select name="Source" id="Source" required="required">
+                            <select name="Source" id="Source" required="required" class="custom-select">
                                 <option value="Delhi">Delhi</option>
                                 <option value="Kolkata">Kolkata</option>
                                 <option value="Mumbai">Mumbai</option>
@@ -81,12 +77,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
+                <div class="col-md-6">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Destination</h5>
                             <!-- Destination -->
-                            <select name="Destination" id="Destination" required="required">
+                            <select name="Destination" id="Destination" required="required" class="custom-select">
                                 <option value="Cochin">Cochin</option>
                                 <option value="Delhi">Delhi</option>
                                 <option value="New Delhi">New Delhi</option>
@@ -98,19 +94,13 @@
                 </div>
             </div>
 
-
-
-            <br>
-            <br>
-            <br>
-
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="card">
+                <div class="col-md-6">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Stopage</h5>
                             <!-- Total Stops -->
-                            <select name="stops" required="required">
+                            <select name="stops" required="required" class="custom-select">
                                 <option value="0">Non-Stop</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -120,12 +110,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
+                <div class="col-md-6">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Which Airline you want to travel?</h5>
                             <!-- Airline -->
-                            <select name="airline" id="airline" required="required">
+                            <select name="airline" id="airline" required="required" class="custom-select">
                                 <option value="Jet Airways">Jet Airways</option>
                                 <option value="IndiGo">IndiGo</option>
                                 <option value="Air India">Air India</option>
@@ -134,7 +124,8 @@
                                 <option value="Vistara">Vistara</option>
                                 <option value="Air Asia">Air Asia</option>
                                 <option value="GoAir">GoAir</option>
-                                <option value="Multiple carriers Premium economy">Multiple carriers Premium economy
+                                <option
+                                    value="Multiple carriers Premium economy">Multiple carriers Premium economy
                                 </option>
                                 <option value="Jet Airways Business">Jet Airways Business</option>
                                 <option value="Vistara Premium economy">Vistara Premium economy</option>
@@ -145,27 +136,21 @@
                 </div>
             </div>
 
-
-
-            <br>
-            <br>
-            <br>
             <!-- Submit -->
-            <input type="submit" value="Submit" class="btn btn-secondary">
+            <div class="text-center mt-3">
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </div>
+
         </form>
 
-        <br>
-        <br>
-        <h3>{{ prediction_text }}</h3>
+        <div class="text-center mt-4">
+            <!-- Result text -->
+            <p class="result-text">{{ prediction_text }}</p>
+        </div>
 
-        <br>
-        <br>
-        <p>©2020 Amar Mandal</p>
+        
 
     </div>
-
-
-
 
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
